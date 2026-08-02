@@ -314,3 +314,21 @@ body {
         overflow-x: auto;
     }
 }
+
+
+/* ===========================
+   FOOTER
+=========================== */
+
+.footer {
+    margin-top: 50px;
+    padding: 25px 0;
+    text-align: center;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.footer-content {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+}
