@@ -1,6 +1,6 @@
-/* =========================
-   Global
-========================= */
+/* ===========================
+   RESET
+=========================== */
 
 * {
     margin: 0;
@@ -8,232 +8,309 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f7fb;
-    color: #1f2937;
-    line-height: 1.5;
+:root {
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --success: #16a34a;
+    --danger: #dc2626;
+    --warning: #f59e0b;
+    --text: #1f2937;
+    --text-light: #6b7280;
+    --border: #e5e7eb;
+    --background: #f5f7fb;
+    --card: #ffffff;
+    --shadow: 0 8px 30px rgba(0,0,0,.06);
+    --radius: 14px;
 }
 
-/* =========================
-   Layout
-========================= */
+/* ===========================
+   BODY
+=========================== */
+
+body {
+    background: var(--background);
+    font-family: "Segoe UI", sans-serif;
+    color: var(--text);
+}
 
 .container {
+    width: 95%;
     max-width: 1400px;
-    margin: 0 auto;
-    padding: 20px;
+    margin: auto;
+    padding: 30px 0;
 }
 
 .page-content {
-    max-width: 1200px;
-    margin: 0 auto;
+    margin-top: 30px;
 }
 
-/* =========================
-   Header
-========================= */
+/* ===========================
+   NAVBAR
+=========================== */
 
-#top-bar-div {
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 16px;
-    padding: 20px 30px;
-    margin-bottom: 30px;
+.navbar {
+    background: white;
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    padding: 18px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border);
 }
 
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-}
-
-/* =========================
-   App Title
-========================= */
-
-.app-title {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 1.8rem;
+.navbar-brand {
+    font-size: 1.5rem;
     font-weight: 700;
-    color: #111827;
+    color: var(--primary);
 }
-
-    .app-title i {
-        color: #16a34a;
-    }
-
-/* =========================
-   Navigation
-========================= */
 
 .navbar ul {
-    list-style: none;
     display: flex;
-    gap: 24px;
-}
-
-.navbar li {
-    position: relative;
+    gap: 30px;
+    list-style: none;
 }
 
 .navbar a {
     text-decoration: none;
-    color: #374151;
+    color: var(--text);
     font-weight: 600;
-    transition: color 0.2s ease;
+    transition: .25s;
 }
 
     .navbar a:hover {
-        color: #2563eb;
+        color: var(--primary);
     }
 
-/* =========================
-   Login Button
-========================= */
+/* ===========================
+   PAGE CARD
+=========================== */
 
-.login-section {
-    margin-left: auto;
+.card {
+    background: white;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    margin-bottom: 30px;
 }
 
-.login-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    background-color: #2563eb;
-    color: white;
-    padding: 10px 18px;
-    border-radius: 10px;
-    font-weight: 600;
-    transition: all 0.2s ease;
-    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
-}
-
-    .login-btn:hover {
-        background-color: #1d4ed8;
-        transform: translateY(-1px);
-    }
-
-    .login-btn:visited {
-        color: white;
-    }
-
-/* =========================
-   Stock Card
-========================= */
-
-.stock-card {
-    background: #ffffff;
-    max-width: 550px;
-    margin: 40px auto;
-    padding: 24px;
-    border-radius: 16px;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-
-.stock-header {
+.card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 25px;
+}
+
+.card-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .2s;
+}
+
+    .btn:hover {
+        transform: translateY(-2px);
+    }
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+    .btn-primary:hover {
+        background: var(--primary-hover);
+    }
+
+.btn-success {
+    background: var(--success);
+    color: white;
+}
+
+.btn-danger {
+    background: var(--danger);
+    color: white;
+}
+
+.btn-warning {
+    background: var(--warning);
+    color: white;
+}
+
+.btn-secondary {
+    background: #f3f4f6;
+    color: #111827;
+}
+
+/* ===========================
+   TABLE
+=========================== */
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+    .table thead {
+        background: #eff6ff;
+    }
+
+    .table th {
+        text-align: left;
+        padding: 16px;
+        color: #374151;
+        font-size: .95rem;
+    }
+
+    .table td {
+        padding: 16px;
+        border-top: 1px solid var(--border);
+    }
+
+    .table tbody tr {
+        transition: .2s;
+    }
+
+        .table tbody tr:hover {
+            background: #f8fafc;
+        }
+
+/* ===========================
+   ACTION BUTTONS
+=========================== */
+
+.actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.edit {
+    background: #2563eb;
+}
+
+.details {
+    background: #16a34a;
+}
+
+.delete {
+    background: #dc2626;
+}
+
+/* ===========================
+   FORM
+=========================== */
+
+.form-group {
     margin-bottom: 20px;
 }
 
-    .stock-header h2 {
-        font-size: 2rem;
-        color: #111827;
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
     }
 
-.stock-badge {
-    background-color: #dcfce7;
-    color: #15803d;
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 15px;
+    transition: .2s;
+}
+
+    .form-control:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 4px rgba(37,99,235,.12);
+    }
+
+/* ===========================
+   SEARCH BAR
+=========================== */
+
+.search-box {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+    .search-box input {
+        width: 100%;
+        padding: 13px 18px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        font-size: 15px;
+    }
+
+/* ===========================
+   BADGES
+=========================== */
+
+.badge {
     padding: 6px 12px;
-    border-radius: 999px;
-    font-size: 0.8rem;
-    font-weight: 700;
-}
-
-.stock-price {
-    font-size: 3rem;
-    font-weight: 700;
-    color: #111827;
-    margin-bottom: 8px;
-}
-
-.stock-change {
-    margin-bottom: 24px;
-    font-size: 1.1rem;
+    border-radius: 50px;
+    font-size: 13px;
     font-weight: 600;
 }
 
-.positive {
-    color: #16a34a;
+.badge-success {
+    background: #dcfce7;
+    color: #15803d;
 }
 
-.negative {
-    color: #dc2626;
+.badge-danger {
+    background: #fee2e2;
+    color: #b91c1c;
 }
 
-.stock-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 0;
-    border-bottom: 1px solid #e5e7eb;
-}
+/* ===========================
+   RESPONSIVE
+=========================== */
 
-    .stock-row:last-child {
-        border-bottom: none;
-    }
+@media(max-width:768px) {
 
-    .stock-row span {
-        color: #6b7280;
-    }
-
-    .stock-row strong {
-        color: #111827;
-    }
-
-/* =========================
-   Responsive
-========================= */
-
-@media (max-width: 768px) {
-
-    #top-bar-div {
+    .navbar {
         flex-direction: column;
-        align-items: flex-start;
         gap: 20px;
     }
 
-    .header-left {
+    .card-header {
         flex-direction: column;
         align-items: flex-start;
-        gap: 20px;
+        gap: 15px;
     }
 
-    .navbar ul {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .login-section {
-        margin-left: 0;
-        width: 100%;
-    }
-
-    .stock-card {
-        margin: 20px auto;
-    }
-
-    .stock-price {
-        font-size: 2.25rem;
+    .table {
+        display: block;
+        overflow-x: auto;
     }
 }
