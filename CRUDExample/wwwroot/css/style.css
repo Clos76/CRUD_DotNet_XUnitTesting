@@ -1,0 +1,239 @@
+/* =========================
+   Global
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7fb;
+    color: #1f2937;
+    line-height: 1.5;
+}
+
+/* =========================
+   Layout
+========================= */
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.page-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* =========================
+   Header
+========================= */
+
+#top-bar-div {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 20px 30px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+/* =========================
+   App Title
+========================= */
+
+.app-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+    .app-title i {
+        color: #16a34a;
+    }
+
+/* =========================
+   Navigation
+========================= */
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+}
+
+.navbar li {
+    position: relative;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #374151;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+    .navbar a:hover {
+        color: #2563eb;
+    }
+
+/* =========================
+   Login Button
+========================= */
+
+.login-section {
+    margin-left: auto;
+}
+
+.login-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    background-color: #2563eb;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+}
+
+    .login-btn:hover {
+        background-color: #1d4ed8;
+        transform: translateY(-1px);
+    }
+
+    .login-btn:visited {
+        color: white;
+    }
+
+/* =========================
+   Stock Card
+========================= */
+
+.stock-card {
+    background: #ffffff;
+    max-width: 550px;
+    margin: 40px auto;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.stock-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+    .stock-header h2 {
+        font-size: 2rem;
+        color: #111827;
+    }
+
+.stock-badge {
+    background-color: #dcfce7;
+    color: #15803d;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.stock-price {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+.stock-change {
+    margin-bottom: 24px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.positive {
+    color: #16a34a;
+}
+
+.negative {
+    color: #dc2626;
+}
+
+.stock-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+    .stock-row:last-child {
+        border-bottom: none;
+    }
+
+    .stock-row span {
+        color: #6b7280;
+    }
+
+    .stock-row strong {
+        color: #111827;
+    }
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 768px) {
+
+    #top-bar-div {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .header-left {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .login-section {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .stock-card {
+        margin: 20px auto;
+    }
+
+    .stock-price {
+        font-size: 2.25rem;
+    }
+}
