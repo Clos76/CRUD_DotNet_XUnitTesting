@@ -1,29 +1,90 @@
 ﻿<!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-	<link rel="stylesheet" href="~/css/style.css"  />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/fontawesome.min.css" integrity="sha512-WAQldzapOKc+yIZB/g4npsWhF43dQ74uxwR6WkySVIKVGKaVNSuRw19CQeqN2OmYmg34g7TsZv3sh9nsQXYj3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <title>@ViewData["Title"] - CRUD Demo</title>
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
 </head>
+
 <body>
-  <div class="container"> 
-      <div class="navbar">
-          <div class="navbar-brand">CRUD Demo</div>
-              <ul>
+
+    <!-- ===========================
+         NAVBAR
+    ============================ -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="navbar-brand">
+
+                <i class="fa-solid fa-database"></i>
+                CRUD Demo
+
+            </div>
+
+            <ul>
+
                 <li>
-                    <a href="~/persons/index">Persons</a>
+                    <a href="~/persons/index">
+                        <i class="fa-solid fa-users"></i>
+                        Persons
+                    </a>
                 </li>
-              </ul>
-      </div>
 
+                <li>
+                    <a href="/">
+                        <i class="fa-solid fa-house"></i>
+                        Home
+                    </a>
+                </li>
 
-      <div class="page-content">
-          @RenderBody()
-      </div>
-  </div>
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!-- ===========================
+         MAIN CONTENT
+    ============================ -->
+
+    <main class="container">
+
+        <div class="page-content">
+
+            @RenderBody()
+
+        </div>
+
+    </main>
+
+    <!-- ===========================
+         FOOTER
+    ============================ -->
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <span>
+                © @DateTime.Now.Year CRUD Demo • Built with ASP.NET Core MVC
+            </span>
+
+        </div>
+
+    </footer>
+
+    @RenderSection("Scripts", required: false)
+
 </body>
+
 </html>
