@@ -8,10 +8,44 @@ namespace Services
     {
         private readonly List<Country> _countries;
         //constructor
-        public CountriesService()
+        public CountriesService(bool initialize = true)
         {
             //saying whenever countries service is created , create a brand new empty list of countries.
             _countries = new List<Country>(); //inject from /Entities/Country-------
+            if(initialize)
+            {
+                _countries.AddRange(new List<Country>() {
+                new Country()
+                {
+                    CountryId = Guid.Parse("B50075E5-A2EE-4164-96FD-9C46AEC6CC97"),
+                    CountryName = "USA"
+
+                },
+                new Country()
+                {
+                    CountryId = Guid.Parse("320217E3-AAC2-40AF-96E0-5522447C6471"),
+                    CountryName = "Japan"
+                },
+                new Country()
+                {
+                    CountryId = Guid.Parse("30C062BE-7371-4F33-B448-D5B40C188100"),
+                    CountryName = "Mexico"
+                },
+                new Country()
+                {
+                    CountryId = Guid.Parse("A4BF3178-250B-4E46-9DE6-D2B6F27AA72C"),
+                    CountryName = "Canada"
+
+                },
+                new Country()
+                {
+                    CountryId = Guid.Parse("449882A6-381F-4630-B17B-BFC070EFE74A"),
+                    CountryName = "England"
+                },
+               });
+
+
+            }
         }
         public CountryResponse AddCountry(CountryAddRequest? countryAddRequest)
         {
