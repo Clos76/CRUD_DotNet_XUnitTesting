@@ -24,7 +24,7 @@ namespace CRUDTests
         public PersonServiceTest(ITestOutputHelper testOutputHelper)
         {
             _personService = new PersonService(); //everytime it runs it , it creates a new instance of PersonServiceTest;
-            _countriesService = new CountriesService();
+            _countriesService = new CountriesService(false);
             _testOutputHelper = testOutputHelper; //test helper shows what supposed value should be, expected and actual value
         }
 
