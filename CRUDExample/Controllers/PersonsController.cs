@@ -15,7 +15,7 @@ namespace CRUDExample.Controllers
         }
         [Route("persons/index")]
         [Route("/")]
-        public IActionResult Index(string searchBy, string searchString)//model binding
+        public IActionResult Index(string searchBy, string? searchString)//model binding
         {
             ViewBag.SearchFields = new Dictionary<string, string>()
             {
@@ -27,7 +27,11 @@ namespace CRUDExample.Controllers
 
             };
 
-            List<PersonResponse> persons = _personService.GetAllPersons();
+            List<PersonResponse> persons = _personService.GetFilteredPersons(searchBy, searchString);
+            //store the searchBy and searchString into a var to keep it in the view
+            ViewBag.CurrentSearchBy = searchBy;
+            ViewBag.CurrentSearchString = searchString;
+
             return View(persons); //views/persons/index---- but we also supply the model value data
         }
     }
