@@ -5,8 +5,59 @@
 @{
 	ViewBag.Title = "Persons";
 }
-
+<form action="~/persons/index" method="get" >
 <h1>Persons</h1>
+
+<div class="box flex">
+
+	<div class="flex-1">
+		<select class="form-input" name="searchBy" value="@ViewBag.CurrentSearchBy">
+			@foreach (var field in ViewBag.SearchFields)
+			{
+					if (field.Key == ViewBag.CurrentSearchBy)
+						{
+						<option selected="selected" value="@field.Key">@field.Value</option>
+						}
+						else
+						{
+							<option value="@field.Key">@field.Value</option>
+						}
+
+			}
+			@* searchBy=PersonName&searchString=abc*@
+				@* nameTextBox=value&nameTextBox=value*@
+		</select>
+	</div>
+
+
+	<div class="flex-1">
+		<input type="search"
+			   name="searchString"
+			   id="search"
+			   class="form-input"
+			   placeholder="Search..."
+			   value="@ViewBag.CurrentSearchString"
+			   />
+	</div>
+
+
+	<div class="flex-1">
+
+		<button class="btn btn-primary">
+			<i class="fa-solid fa-magnifying-glass"></i>
+			Search
+		</button>
+
+
+		<a href="~/persons/index"
+			   class="btn btn-secondary">
+			<i class="link-hover"></i>
+			Clear All
+		</a>
+
+	</div>
+
+</div>
 <table class="table">
 	<thead>
 		<tr>
@@ -38,3 +89,5 @@
 	</tbody>
 
 </table>
+
+</form>
