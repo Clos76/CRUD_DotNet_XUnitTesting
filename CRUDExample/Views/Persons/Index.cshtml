@@ -61,7 +61,23 @@
 <table class="table">
 	<thead>
 		<tr>
-			<th>Person Name</th>
+		
+				<th>
+					@if (ViewBag.CurrentSortBy == nameof(PersonResponse.PersonName) &&
+							 ViewBag.CurrentSortOrder == SortOrderOptions.ASC.ToString())
+					{
+						<a href="~/persons/index?searchBy=@ViewBag.CurrentSearchBy&searchString=@ViewBag.CurrentSearchString&sortBy=@nameof(PersonResponse.PersonName)&sortOrder=@nameof(SortOrderOptions.DESC)">
+							Person Name <i class="fa-solid fa-sort-up"></i>
+						</a>
+					}
+					else
+					{
+						<a href="~/persons/index?searchBy=@ViewBag.CurrentSearchBy&searchString=@ViewBag.CurrentSearchString&sortBy=@nameof(PersonResponse.PersonName)&sortOrder=@nameof(SortOrderOptions.ASC)">
+							Person Name <i class="fa-solid fa-sort-down"></i>
+						</a>
+					}
+				</th>
+				
 			<th>Email</th>
 			<th>Date of Birth</th>
 			<th>Age</th>
