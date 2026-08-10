@@ -197,7 +197,7 @@ namespace Services
 
         public List<PersonResponse> GetAllPersons()
         {
-            return _person.Select(temp => temp.ToPersonResponse()).ToList();  //receives person obje then converts it to personResponseType
+            return _person.Select(temp => ConvertPersonToPersonResponse(temp)).ToList();  //receives person obje then converts it to personResponseType
             //excecutes once for each person => turns it into PersonResponse then second and third etc. 
             //return I<Enumberable> of person response ---- convert it toLIST();
         }
@@ -208,7 +208,7 @@ namespace Services
           Person? person=_person.FirstOrDefault(temp => temp.PersonId == personId);//will excecute this for each person obj 
             if(person == null) return null;
 
-          return person.ToPersonResponse();
+          return ConvertPersonToPersonResponse(person);
         }
 
         public List<PersonResponse> GetFilteredPersons(string searchBy, string? searchString)
@@ -371,7 +371,7 @@ namespace Services
             matchingPerson.Email = personUpdateRequest.Email;
             matchingPerson.ReceiveNewsLetters = personUpdateRequest.ReceiveNewsLetters;
 
-            return matchingPerson.ToPersonResponse();
+            return ConvertPersonToPersonResponse(matchingPerson);
  
         }
 

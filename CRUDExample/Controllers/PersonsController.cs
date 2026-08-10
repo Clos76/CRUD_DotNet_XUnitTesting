@@ -43,7 +43,7 @@ namespace CRUDExample.Controllers
 
 
 
-            return View(persons); //views/persons/index---- but we also supply the model value data
+            return View(sortedPersons); //views/persons/index---- but we also supply the model value data
         }
     }
 }
