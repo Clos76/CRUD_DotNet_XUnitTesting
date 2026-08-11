@@ -9,18 +9,26 @@
 }
 
 
+/* ===========================
+   VARIABLES
+=========================== */
+
 :root {
     --primary: #2563eb;
     --primary-hover: #1d4ed8;
     --success: #16a34a;
+    --success-hover: #15803d;
     --danger: #dc2626;
+    --danger-hover: #b91c1c;
     --warning: #f59e0b;
+    --warning-hover: #d97706;
     --text: #1f2937;
     --text-light: #6b7280;
     --border: #e5e7eb;
+    --border-dark: #d1d5db;
     --background: #f5f7fb;
     --card: #ffffff;
-    --shadow: 0 8px 30px rgba(0,0,0,.06);
+    --shadow: 0 8px 30px rgba(0, 0, 0, .06);
     --radius: 14px;
 }
 
@@ -35,6 +43,10 @@ body {
     color: var(--text);
 }
 
+
+/* ===========================
+   CONTAINER
+=========================== */
 
 .container {
     width: 95%;
@@ -92,6 +104,30 @@ body {
 
 
 /* ===========================
+   LINKS
+=========================== */
+
+a {
+    color: var(--primary);
+}
+
+
+    a.link-hover {
+        display: inline-block;
+        padding: 5px;
+        border-radius: 9px;
+        text-decoration: none;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+
+        a.link-hover:hover {
+            background-color: #eff6ff;
+            color: var(--primary-hover);
+        }
+
+
+/* ===========================
    CARD
 =========================== */
 
@@ -133,8 +169,10 @@ body {
     border-radius: 10px;
     cursor: pointer;
     text-decoration: none;
+    font-family: inherit;
+    font-size: 15px;
     font-weight: 600;
-    transition: .2s;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 
@@ -142,6 +180,8 @@ body {
         transform: translateY(-2px);
     }
 
+
+/* Primary */
 
 .btn-primary {
     background: var(--primary);
@@ -154,11 +194,20 @@ body {
     }
 
 
+/* Success */
+
 .btn-success {
     background: var(--success);
     color: white;
 }
 
+
+    .btn-success:hover {
+        background: var(--success-hover);
+    }
+
+
+/* Danger */
 
 .btn-danger {
     background: var(--danger);
@@ -166,17 +215,35 @@ body {
 }
 
 
+    .btn-danger:hover {
+        background: var(--danger-hover);
+    }
+
+
+/* Warning */
+
 .btn-warning {
     background: var(--warning);
     color: white;
 }
 
 
+    .btn-warning:hover {
+        background: var(--warning-hover);
+    }
+
+
+/* Secondary */
+
 .btn-secondary {
     background: #f3f4f6;
     color: #111827;
 }
 
+
+    .btn-secondary:hover {
+        background: #e5e7eb;
+    }
 
 
 /* ===========================
@@ -200,6 +267,7 @@ body {
         text-align: left;
         padding: 16px;
         color: #374151;
+        font-weight: 600;
     }
 
 
@@ -214,9 +282,8 @@ body {
     }
 
 
-
 /* ===========================
-   TABLE ACTION BUTTONS
+   TABLE ACTIONS
 =========================== */
 
 .table-actions {
@@ -234,7 +301,14 @@ body {
     align-items: center;
     color: white;
     text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
+
+
+    .btn-icon:hover {
+        transform: translateY(-2px);
+        opacity: .9;
+    }
 
 
 .edit {
@@ -252,10 +326,17 @@ body {
 }
 
 
-
 /* ===========================
    FORMS
 =========================== */
+
+.form-card {
+    background: var(--card);
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
 
 
 .form-group {
@@ -263,33 +344,175 @@ body {
 }
 
 
-    .form-group label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: 600;
-    }
-
-
-.form-control {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    font-size: 15px;
+.form-field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
 }
 
 
-    .form-control:focus {
-        outline: none;
-        border-color: var(--primary);
+    .form-field label {
+        font-weight: 600;
+        color: var(--text);
     }
 
 
+.form-label {
+    display: block;
+}
+
 
 /* ===========================
-   SEARCH
+   FORM INPUTS
 =========================== */
 
+.form-input {
+    width: 100%;
+    height: 44px;
+    padding: 10px 14px;
+    background: #ffffff;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 15px;
+    border: 1px solid var(--border-dark);
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+
+    .form-input:hover {
+        border-color: #9ca3af;
+    }
+
+
+    .form-input:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 4px rgba(37, 99, 235, .12);
+    }
+
+
+/* ===========================
+   SELECT
+=========================== */
+
+select.form-input {
+    cursor: pointer;
+}
+
+
+/* ===========================
+   TEXTAREA
+=========================== */
+
+textarea.form-input {
+    height: auto;
+    min-height: 120px;
+    resize: vertical;
+}
+
+
+/* ===========================
+   RADIO BUTTONS
+=========================== */
+
+.form-radio {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-right: 18px;
+    cursor: pointer;
+    font-weight: 400 !important;
+}
+
+
+    .form-radio input {
+        width: 17px;
+        height: 17px;
+        accent-color: var(--primary);
+        cursor: pointer;
+    }
+
+
+/* ===========================
+   CHECKBOXES
+=========================== */
+
+.form-checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    cursor: pointer;
+}
+
+
+    .form-checkbox input {
+        width: 17px;
+        height: 17px;
+        accent-color: var(--primary);
+        cursor: pointer;
+    }
+
+
+/* ===========================
+   FORM ACTIONS
+=========================== */
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+
+/* ===========================
+   FORM VALIDATION
+=========================== */
+
+.form-input.input-error {
+    border-color: var(--danger);
+}
+
+
+.form-error {
+    margin-top: 5px;
+    font-size: 13px;
+    color: var(--danger);
+}
+
+
+/* ===========================
+   FORM WIDTHS
+=========================== */
+
+.w-25 {
+    width: 25%;
+}
+
+
+.w-50 {
+    width: 50%;
+}
+
+
+.w-75 {
+    width: 75%;
+}
+
+
+.flex-1 {
+    flex: 1;
+}
+
+
+.flex-2 {
+    flex: 2;
+}
+
+
+/* ===========================
+   SEARCH BOX
+=========================== */
 
 .box {
     background: white;
@@ -300,7 +523,6 @@ body {
 }
 
 
-
 .flex {
     display: flex;
     flex-wrap: wrap;
@@ -308,41 +530,9 @@ body {
 }
 
 
-
     .flex > div {
         padding: 15px;
     }
-
-
-
-.flex-1 {
-    flex: 1;
-}
-
-
-
-.flex-2 {
-    flex: 2;
-}
-
-
-
-.form-input {
-    width: 100%;
-    padding: 12px 15px;
-    font-size: 15px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-}
-
-
-
-    .form-input:focus {
-        outline: none;
-        border-color: var(--primary);
-        box-shadow: 0 0 0 4px rgba(37,99,235,.12);
-    }
-
 
 
 .search-actions {
@@ -352,11 +542,9 @@ body {
 }
 
 
-
 /* ===========================
    BADGES
 =========================== */
-
 
 .badge {
     padding: 6px 12px;
@@ -378,11 +566,9 @@ body {
 }
 
 
-
 /* ===========================
    FOOTER
 =========================== */
-
 
 .footer {
     margin-top: 50px;
@@ -398,14 +584,11 @@ body {
 }
 
 
-
 /* ===========================
    RESPONSIVE
 =========================== */
 
-
-@media(max-width:768px) {
-
+@media (max-width: 768px) {
 
     .navbar {
         flex-direction: column;
@@ -413,8 +596,39 @@ body {
     }
 
 
+        .navbar ul {
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+
     .flex {
         flex-direction: column;
+        align-items: stretch;
+    }
+
+
+        .flex > div {
+            width: 100%;
+        }
+
+
+    .form-field {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+
+        .form-field .w-25 {
+            width: 100%;
+        }
+
+
+    .w-50,
+    .w-75 {
+        width: 100%;
     }
 
 
@@ -429,11 +643,14 @@ body {
         display: block;
         overflow-x: auto;
     }
-}
 
 
-a.link-hover:link{
-    padding: 5px;
-    border-radius: 9px;
-    transition: background-color 0.2s;
+    .form-actions {
+        flex-direction: column;
+    }
+
+
+        .form-actions .btn {
+            width: 100%;
+        }
 }
