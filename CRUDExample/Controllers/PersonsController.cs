@@ -10,9 +10,11 @@ namespace CRUDExample.Controllers
 
         //private
         private readonly IPersonService _personService;
-        public PersonsController(IPersonService personService)
+        private readonly ICountriesService _countriesSerivice;
+        public PersonsController(IPersonService personService, ICountriesService countriesService  )
         {
             _personService = personService;
+            _countriesSerivice = countriesService;
         }
         [Route("persons/index")]
         [Route("/")]
@@ -44,6 +46,18 @@ namespace CRUDExample.Controllers
 
 
             return View(sortedPersons); //views/persons/index---- but we also supply the model value data
+        }
+
+        //Executes when the use cliks on "Create Person" link in the Index view
+        [Route("persons/create")]
+        [HttpGet]
+        public IActionResult Create()
+        {
+           List<CountryResponse> countries = _countriesSerivice.GetAllCountries();
+
+            ViewBag.Countries = countries;
+
+            return View();
         }
     }
 }

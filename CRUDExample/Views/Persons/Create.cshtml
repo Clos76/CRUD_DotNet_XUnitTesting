@@ -1,0 +1,77 @@
+﻿@{
+	ViewBag.Title = "Create Person";
+}
+
+<a href="~/persons/index" class="link-hover">Back to Persons List</a>
+<h2>Create Person</h2>
+
+
+<div class="w-50">
+	<form action="~/persons/create" method="post">
+		@*PersonName*@
+		<div class="form-field flex-form">
+			<div class="w-50">
+				<label for="PersonName" class="form-label" >Person Name</label>
+			</div>
+			<div class="flex-1">
+				<input type="text" id="PersonName" name="PersonName" class="form-input" placeholder="Paul Mac"/>
+			</div>
+		</div>
+
+		@*Email*@
+		<div class="form-field flex-form">
+			<div class="w-50">
+				<label for="Email" class="form-label">Email</label>
+			</div>
+			<div class="flex-1">
+				<input type="text" id="Email" name="Email" class="form-input" placeholder="example@email.com" />
+			</div>
+		</div>
+
+		@*DOB*@
+		<div class="form-field flex-form">
+			<div class="w-50">
+				<label for="DateOfBirth" class="form-label">Date of Birth</label>
+			</div>
+			<div class="flex-1">
+				<input type="date" id="DateOfBirth" name="DateOfBirth" class="form-input" placeholder="enter DOB" />
+			</div>
+		</div>
+
+		@*Gender*@
+		<div class="form-field flex-form">
+			<div class="w-50">
+				<label for="Gender" class="form-label">Gender</label>
+			</div>
+			<div class="flex-1">
+				<input type="radio" id="Male" value="Male" name="Gender" />
+				<label>Male</label>
+				<input type="radio" id="Female" value="Female" name="Gender" />
+				<label>Female</label>
+				<input type="radio" id="Other" value="Other" name="Gender" />
+				<label>Other</label>
+			</div>
+		</div>
+
+		@*Country*@
+		<div class="form-field flex-form">
+			<div class="w-50">
+				<label for="CountryId" class="form-label">Country</label>
+			</div>
+			<div class="flex-1">
+				<select class="form-input" id="CountryId" name="CountryId">
+					<option value>Please Select</option>
+					@foreach(CountryResponse country in ViewBag.Countries)
+						{
+							<option value="@country.CountryId">@country.CountryName</option>
+						}
+					</select>
+			</div>
+		</div>
+
+
+
+
+		<button>Submit</button>
+	</form>
+</div>
