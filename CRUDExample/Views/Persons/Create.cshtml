@@ -44,11 +44,11 @@
 				<label for="Gender" class="form-label">Gender</label>
 			</div>
 			<div class="flex-1">
-				<input type="radio" id="Male" value="Male" name="Gender" />
+				<input type="radio" id="Male" value="Male" name="Gender"  class="ml" />
 				<label>Male</label>
-				<input type="radio" id="Female" value="Female" name="Gender" />
+				<input type="radio" id="Female" value="Female" name="Gender" class="ml" />
 				<label>Female</label>
-				<input type="radio" id="Other" value="Other" name="Gender" />
+				<input type="radio" id="Other" value="Other" name="Gender" class="ml" />
 				<label>Other</label>
 			</div>
 		</div>
@@ -69,9 +69,47 @@
 			</div>
 		</div>
 
+		@*Address*@
+		<div class="form-field flex-form">
+			<div class="w-50">
+				<label for="Address" class="form-label">Address</label>
+			</div>
+			<div class="flex-1">
+				<textarea type="text" id="Address" name="Address" class="form-input" placeholder="123 W Label St, Washington DC 22033"></textarea>
+			</div>
+		</div>
 
+		@*News Letters*@
+		<div class="form-field flex-form">
+			<div class="w-50">
+				
+			</div>
+			<div class="flex-1 form-checkbox">
+					<input type="checkbox" value="true" name="ReceiveNewsLetters" />
+					<label class="form-label" id="ReceiveNewsLetters" name="ReceiveNewsLetters">Receive News Letters</label>
+			</div>
+		</div>
 
+		@*Submit*@
+		<div class="form-field flex-form">
+			<div class="w-50">
+			</div>
+			<div class="flex-1 form-checkbox">
+			<button class="btn btn-primary btn-success" >Create</button>
+			</div>
+		</div>	
+			@if(ViewBag.Errors != null)
+			{
 
-		<button>Submit</button>
-	</form>
+				<div  class="badge-danger">
+					<ul>
+						@foreach(string error in ViewBag.Errors)
+					{
+						<li class="ml">@error</li>
+					}
+					</ul>
+					
+				</div>
+			}
+		</form>
 </div>

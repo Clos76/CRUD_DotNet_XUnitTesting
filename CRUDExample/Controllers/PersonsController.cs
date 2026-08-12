@@ -50,14 +50,35 @@ namespace CRUDExample.Controllers
 
         //Executes when the use cliks on "Create Person" link in the Index view
         [Route("persons/create")]
-        [HttpGet]
+        [HttpGet] //this is to open the link
         public IActionResult Create()
         {
            List<CountryResponse> countries = _countriesSerivice.GetAllCountries();
-
             ViewBag.Countries = countries;
 
             return View();
+        }
+
+        [HttpPost]
+        [Route("persons/create")]
+        public IActionResult Create(PersonAddRequest personAddRequest)
+        {
+            if (!ModelState.IsValid)
+            {
+                List<CountryResponse> countries = _countriesSerivice.GetAllCountries();
+                ViewBag.Countries = countries;
+              ViewBag.Errors =ModelState.Values
+                    .SelectMany(v => v.Errors)
+                    .Select(e => e.ErrorMessage)
+                    .ToList();
+
+                return View();
+            }
+
+            //no errors
+            PersonResponse personResponse = _personService.AddPerson(personAddRequest);
+
+            return RedirectToAction("Index", "Persons"); // redirect to index, then what controller (persons)
         }
     }
 }
